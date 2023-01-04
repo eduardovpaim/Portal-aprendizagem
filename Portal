@@ -1,0 +1,68 @@
+import java.util.Scanner;
+
+public class LearningPortal {
+  private static final String[] COURSES = {
+    "Introduction to Computer Science",
+    "Advanced Computer Science",
+    "Data Structures and Algorithms",
+    "Database Systems",
+    "Software Engineering"
+  };
+
+  public static void main(String[] args) {
+    Scanner input = new Scanner(System.in);
+    int choice = 0;
+
+    System.out.println("Welcome to the Learning Portal!");
+
+    while (choice != 6) {
+      System.out.println("Please select an option:");
+      System.out.println("1. View available courses");
+      System.out.println("2. Enroll in a course");
+      System.out.println("3. View my courses");
+      System.out.println("4. View course materials");
+      System.out.println("5. Take a quiz");
+      System.out.println("6. Exit");
+      choice = input.nextInt();
+
+      switch (choice) {
+        case 1:
+          viewCourses();
+          break;
+        case 2:
+          enrollInCourse();
+          break;
+        case 3:
+          viewMyCourses();
+          break;
+        case 4:
+          viewCourseMaterials();
+          break;
+        case 5:
+          takeQuiz();
+          break;
+        case 6:
+          break;
+        default:
+          System.out.println("Invalid option. Please try again.");
+          break;
+      }
+    }
+
+    System.out.println("Thank you for using the Learning Portal. Goodbye!");
+
+    input.close();
+  }
+
+  private static void viewCourses() {
+    System.out.println("Here are the available courses:");
+    for (int i = 0; i < COURSES.length; i++) {
+      System.out.println((i+1) + ". " + COURSES[i]);
+    }
+  }
+
+  private static void enrollInCourse() {
+    Scanner input = new Scanner(System.in);
+
+    viewCourses();
+    System.out.println("
